@@ -11,6 +11,7 @@
     border-radius: 100%;
 }
 
+
 .cabecera {
     background-color: #1FC1E5;
 }
@@ -19,31 +20,57 @@
     background-color: #1FC1E5;
 }
 
-.o-exclusivas {
-    padding: 1rem;
-    text-align: center;
-
-}
-
-.p-destacados {
-    padding: 1rem;
-    text-align: center;
-
-}
-
 .main {
     background-image: url(../images/fondo-huellas.png)
 }
 
-.card img {
-    border-radius: 2%;
-    width: 100%;
-    height: 350px;
+#contenedorProductos {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 50px;
+    gap: 30px;
 }
 
-.d-flex {
-    justify-content: space-evenly;
+#tarjetaProducto {
+    border: 2px solid black;
+
 }
+
+img {
+    height: 300px;
+    width: 280px;
+
+}
+
+.tarjetaProducto h3 {
+    background-color: #1FC1E5;
+}
+
+#contenedorCarrito {
+    border: 2px solid black;
+    width: 100%;
+    min-height: 100px;
+}
+
+.tarjetaProductoCarrito {
+    display: flex;
+    justify-content: space-between;
+}
+
+.unidades {
+    display: flex;
+    align-items: center;
+}
+.unidades p {
+    
+    margin-bottom: 0;
+
+}
+
+.oculto {
+    display: none !important;
+}
+
 
 .opciones {
     color: white;
@@ -80,22 +107,6 @@
 
 .box p {
     margin-bottom: 0;
-}
-
-.servicios {
-    padding: 1rem;
-}
-
-.card-button {
-    background-color: #1FC1E5;
-    color: #5C5863;
-    border-radius: 15px;
-    border: 1px solid #5C5863;
-    line-height: normal;
-    height: 25px;
-    width: 80px;
-    font-size: 15px;
-    margin-bottom: 5px;
 }
 
 footer {
@@ -161,3 +172,78 @@ footer {
 .box-foot p {
     margin-bottom: 0;
 }
+
+
+#inputBusqueda {
+    background-color: white;
+    color: #2b2439;
+    border-radius: 15px;
+    border: 1px solid #5C5863;
+    line-height: normal;
+    height: 25px;
+    width: 300px;
+    font-size: 15px;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.botonFiltro {
+    background-color: #1FC1E5;
+    color: #2b2439;
+    border-radius: 15px;
+    border: 1px solid #5C5863;
+    line-height: normal;
+    height: 25px;
+    width: 110px;
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+
+#botonBuscar,
+#botonVerOcultar,
+#botonComprar {
+    background-color: #1FC1E5;
+    color: #2b2439;
+    border-radius: 15px;
+    border: 1px solid #5C5863;
+    line-height: normal;
+    height: 25px;
+    width: 110px;
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+
+.bC {
+    background-color: #1FC1E5;
+    color: #2b2439;
+    border-radius: 15px;
+    border: 1px solid #5C5863;
+    line-height: normal;
+    height: 25px;
+    width: 120px;
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+
+.delet {
+    background-color: #1FC1E5;
+    color: #2b2439;
+    border-radius: 15px;
+    border: 1px solid #5C5863;
+    height: 25px;
+    width: 80px;
+    font-size: 15px;
+}
+
+.masMenos {
+    background-color: #1FC1E5;
+    color: #2b2439;
+    border-radius: 50%;
+    border: 1px solid #5C5863;
+    height: 15px;
+    width: 15px;
+    font-size: 15px;
+    line-height: normal;
+    
+}
+

@@ -1,12 +1,12 @@
-let listaproductos = [
-    { id: 1, nombre: "royal canin mini", categoria: "alimentos", stock: 20, precio: 50, rutaImagen: "royalcanin-mini.png" },
-    { id: 2, nombre: "proplan active mind", categoria: "alimentos", stock: 30, precio: 100, rutaImagen: "proplan-activemind.png" },
-    { id: 3, nombre: "proplan adulto", categoria: "alimentos", stock: 20, precio: 110, rutaImagen: "proplan-adult.png" },
-    { id: 4, nombre: "royal canin puppy", categoria: "alimentos", stock: 14, precio: 60, rutaImagen: "royalcanin-mini-puppy.png" },
-    { id: 5, nombre: "peine", categoria: "higiene", stock: 10, precio: 5, rutaImagen: "peine-perro.png" },
-    { id: 6, nombre: "corta unas y lima", categoria: "higiene", stock: 18, precio: 35, rutaImagen: "corta-una-lima.png" },
-    { id: 7, nombre: "pelotas", categoria: "juguetes", stock: 10, precio: 15, rutaImagen: "pelotas-perro.png" },
-    { id: 8, nombre: "piloto", categoria: "higiene", stock: 18, precio: 25, rutaImagen: "piloto-perro2.png" },
+let listaProductos = [
+    { id: 1, nombre: "Royal Canin Mini", categoria: "alimentos", stock: 20, precio: 50, rutaImagen: "royalcanin-mini.png" },
+    { id: 2, nombre: "Proplan Active Mind", categoria: "alimentos", stock: 30, precio: 100, rutaImagen: "proplan-activemind.png" },
+    { id: 3, nombre: "Proplan Adulto", categoria: "alimentos", stock: 20, precio: 110, rutaImagen: "proplan-adult.png" },
+    { id: 4, nombre: "Royal Canin Puppy", categoria: "alimentos", stock: 14, precio: 60, rutaImagen: "royalcanin-mini-puppy.png" },
+    { id: 5, nombre: "Peine", categoria: "higiene", stock: 10, precio: 5, rutaImagen: "peine-perro.png" },
+    { id: 6, nombre: "Corta Uñas y Lima", categoria: "higiene", stock: 18, precio: 35, rutaImagen: "corta-una-lima.png" },
+    { id: 7, nombre: "Pelotas", categoria: "juguetes", stock: 10, precio: 15, rutaImagen: "pelotas-perro.png" },
+    { id: 8, nombre: "Piloto", categoria: "higiene", stock: 18, precio: 25, rutaImagen: "piloto-perro2.png" },
 ]
 
 const obtenerCarritoLS = () => JSON.parse(localStorage.getItem("carrito")) || []
@@ -49,7 +49,7 @@ function verOcultar(e) {
     contenedorCarrito.classList.toggle("oculto")
     contenedorProductos.classList.toggle("oculto")
 
-    e.target.innerText = e?.target?.innerText === "VER CARRITO" ? "VER PRODUCTOS" : "VER CARRITO"
+    e.target.innerText = e?.target?.innerText === "Ver Carrito" ? "Ver Productos" : "Ver Carrito"
 }
 
 function finalizarCompra() {
@@ -81,9 +81,10 @@ function renderizarProductos(productos) {
         tarjetaProducto.innerHTML = `
             <h3>${nombre}</h3>
             <img src=./images/${rutaImagen} />
-            <h4>Precio: ${precio}</h4>
+            <h5>Precio: ${precio}</h5>
             <p>Stock: ${stock || "Sin unidades"}</p>
-            <button id=botonCarrito${id}>Agregar al carrito</button>
+            <button class=bC id=botonCarrito${id}>Agregar al carrito</button>
+
         `
 
         contenedorProductos.appendChild(tarjetaProducto)
@@ -128,12 +129,12 @@ function renderizarCarrito() {
             <p>${producto.nombre}</p>
             <p>${producto.precioUnitario}</p>
             <div class=unidades>
-                <button id=dec${producto.id}>-</button>
+                <button class= masMenos id=dec${producto.id}>-</button>
                 <p>${producto.unidades}</p>
-                <button id=inc${producto.id}>+</button>
+                <button class= masMenos id=inc${producto.id}>+</button>
             </div>
             <p>${producto.subtotal}</p>
-            <button id=eliminar${producto.id}>ELIMINAR</button>
+            <button class="delet" id=eliminar${producto.id}>Eliminar</button>
         `
         contenedorCarrito.appendChild(tarjetaProductoCarrito)
 
@@ -141,7 +142,7 @@ function renderizarCarrito() {
         botonDecUnidad.addEventListener("click", decrementarUnidad)
 
         let botonIncUnidad = document.getElementById("inc" + producto.id)
-         botonIncUnidad.addEventListener("click", incrementarUnidad)
+        botonIncUnidad.addEventListener("click", incrementarUnidad)
 
         let botonEliminar = document.getElementById("eliminar" + producto.id)
         botonEliminar.addEventListener("click", eliminarProductoDelCarrito)
@@ -154,7 +155,19 @@ function decrementarUnidad(e) {
     let posProdEnCarrito = carrito.findIndex(producto => producto.id === id)
 
     carrito[posProdEnCarrito].unidades--
-    carrito[posProdEnCarrito].subtotal = carrito[posProdEnCarrito].unidades * carrito[posProdEnCarrito].precioUnitario
+    carrito[posProdEnCarrito].subtotal = carrito[posProdEnCarrito].unidades * carrito[posProdEnCarrito].precioUnitario 
+    localStorage.setItem("carrito", JSON.stringify(carrito))
+    renderizarCarrito()
+
+}
+
+function incrementarUnidad(e) {
+    let carrito = obtenerCarritoLS()
+    let id = Number(e.target.id.substring(3))
+    let posProdEnCarrito = carrito.findIndex(producto => producto.id === id)
+
+    carrito[posProdEnCarrito].unidades++
+    carrito[posProdEnCarrito].subtotal = carrito[posProdEnCarrito].unidades * carrito[posProdEnCarrito].precioUnitario 
     localStorage.setItem("carrito", JSON.stringify(carrito))
     renderizarCarrito()
 

@@ -50,10 +50,6 @@
               </li>
             </ul>
 
-            <form class="d-flex" role="search">
-              <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Buscar</button>
-            </form>
           </article>
         </article>
       </nav>
@@ -64,110 +60,18 @@
 
   <main class="main">
 
-    <section class="container py-3">
+    <input id="inputBusqueda" placeholder="Buscar por nombre">
+    <button id="botonBuscar">Buscar</button>
+    <button class="botonFiltro" value="">Todos</button>
+    <button class="botonFiltro" value="deportes">Alimentos</button>
+    <button class="botonFiltro" value="indumentaria">Higiene</button>
+    <button class="botonFiltro" value="indumentariaaa">Juguetes</button>
+    <button id="botonVerOcultar">Ver Carrito</button>
+    <button id="botonComprar">Comprar</button>
+    
+    <div id="contenedorProductos"></div>
 
-      <h2 class="o-exclusivas">Ofertas Exclusivas</h2>
-
-      <article class="row row-cols-4 g-3">
-
-        <article class="col-12 col-sm-6 col-md-4 col-lg-3">
-          <article class="card">
-            <img src="images/royalcanin-mini.png" alt="royalcanin-mini">
-            <div class="card-body p-2">
-              <h5 class="card-title m-0">Royal Canin Mini</h5>
-              <p class="card-text m-0">50$</p>
-              <button class="card-button" type="submit">Comprar</button>
-            </div>
-          </article>
-        </article>
-
-        <article class="col-12 col-sm-6 col-md-4 col-lg-3">
-          <article class="card">
-            <img src="images/proplan-activemind.png" alt="proplan-activemind">
-            <div class="card-body p-2">
-              <h5 class="card-title m-0">Proplan Active Mind</h5>
-              <p class="card-text m-0">100$</p>
-              <button class="card-button" type="submit">Comprar</button>
-            </div>
-          </article>
-        </article>
-
-        <article class="col-12 col-sm-6 col-md-4 col-lg-3">
-          <article class="card">
-            <img src="images/proplan-adult.png" alt="proplan-adult">
-            <div class="card-body p-2">
-              <h5 class="card-title m-0">Proplan Adulto</h5>
-              <p class="card-text m-0">110$</p>
-              <button class="card-button" type="submit">Comprar</button>
-            </div>
-          </article>
-        </article>
-
-        <article class="col-12 col-sm-6 col-md-4 col-lg-3">
-          <article class="card">
-            <img src="images/royalcanin-mini-puppy.png" alt="royalcanin-mini-puppy">
-            <div class="card-body p-2">
-              <h5 class="card-title m-0">Royal Canin Puppy</h5>
-              <p class="card-text m-0">60$</p>
-              <button class="card-button" type="submit">Comprar</button>
-            </div>
-          </article>
-        </article>
-
-    </section>
-
-    <section class="container py-3">
-
-      <h2 class="p-destacados">Productos Destacados</h2>
-
-      <article class="row row-cols-4 g-3">
-
-        <article class="col-12 col-sm-6 col-md-4 col-lg-3">
-          <article class="card">
-            <img src="images/peine-perro.png" alt="peine-perro">
-            <div class="card-body p-2">
-              <h5 class="card-title m-0">Peine</h5>
-              <p class="card-text m-0">5$</p>
-              <button class="card-button" type="submit">Comprar</button>
-            </div>
-          </article>
-        </article>
-
-        <article class="col-12 col-sm-6 col-md-4 col-lg-3">
-          <article class="card">
-            <img src="images/corta-una-lima.png" alt="corta-una-lima">
-            <div class="card-body p-2">
-              <h5 class="card-title m-0">Corta uñas y Lima</h5>
-              <p class="card-text m-0">35$</p>
-              <button class="card-button" type="submit">Comprar</button>
-            </div>
-          </article>
-        </article>
-
-        <article class="col-12 col-sm-6 col-md-4 col-lg-3">
-          <article class="card">
-            <img src="images/pelotas-perro.png" alt="pelotas-perro">
-            <div class="card-body p-2">
-              <h5 class="card-title m-0">Pelotas</h5>
-              <p class="card-text m-0">15$</p>
-              <button class="card-button" type="submit">Comprar</button>
-            </div>
-          </article>
-        </article>
-
-        <article class="col-12 col-sm-6 col-md-4 col-lg-3">
-          <article class="card">
-            <img src="images/piloto-perro2.png" alt="piloto-perro2">
-            <div class="card-body p-2">
-              <h5 class="card-title m-0">Piloto</h5>
-              <p class="card-text m-0">25$</p>
-              <button class="card-button" type="submit">Comprar</button>
-            </div>
-          </article>
-        </article>
-
-      </article>
-    </section>
+    <div class="oculto" id="contenedorCarrito"></div>
 
     <section class="opciones">
 
@@ -184,6 +88,7 @@
       </article>
 
     </section>
+
 
   </main>
 
@@ -229,18 +134,3 @@
 </body>
 
 </html>
-
-    <!-- <input id="inputBusqueda" placeholder="Buscar por nombre">
-    <button id="botonBuscar" >BUSCAR</button>
-
-    <button class="botonFiltro" value="">Todos</button>
-    <button class="botonFiltro" value="deportes">Deportes</button>
-    <button class="botonFiltro" value="indumentaria">Indumentaria</button>
-    <button class="botonFiltro" value="indumentariaaa">Indumentariaaa</button>
-
-    <button id="botonVerOcultar">VER CARRITO</button>
-
-    <div id="contenedorProductos"></div>
-    <div class="oculto" id="contenedorCarrito"></div>
-
-    <button id="botonComprar">COMPRAR</button> -->
