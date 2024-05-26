@@ -47,9 +47,11 @@ img {
 }
 
 #contenedorCarrito {
-    border: 2px solid black;
-    width: 100%;
-    min-height: 100px;
+    border: 3px solid #5C5863;
+    border-radius: 10px;
+    width: 35%;
+    margin:auto; 
+    min-height: 320px;
 }
 
 .tarjetaProductoCarrito {
@@ -69,6 +71,7 @@ img {
 
 .oculto {
     display: none !important;
+    
 }
 
 
@@ -173,6 +176,14 @@ footer {
     margin-bottom: 0;
 }
 
+.botones {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    height: 50px;
+    
+}
 
 #inputBusqueda {
     background-color: white;
@@ -181,10 +192,21 @@ footer {
     border: 1px solid #5C5863;
     line-height: normal;
     height: 25px;
-    width: 300px;
+    width: 350px;
     font-size: 15px;
     margin-bottom: 5px;
     text-align: center;
+}
+#botonBuscar {
+    background-color: #dbdbdb;
+    color: #000000;
+    border-radius: 15px;
+    border: 1px solid #5C5863;
+    line-height: normal;
+    height: 25px;
+    width: 110px;
+    font-size: 15px;
+    margin-bottom: 5px;
 }
 
 .botonFiltro {
@@ -199,7 +221,7 @@ footer {
     margin-bottom: 5px;
 }
 
-#botonBuscar,
+
 #botonVerOcultar,
 #botonComprar {
     background-color: #1FC1E5;
@@ -220,7 +242,7 @@ footer {
     border: 1px solid #5C5863;
     line-height: normal;
     height: 25px;
-    width: 120px;
+    width: 150px;
     font-size: 15px;
     margin-bottom: 5px;
 }
@@ -244,6 +266,12 @@ footer {
     width: 15px;
     font-size: 15px;
     line-height: normal;
-    
 }
 
+.tostada {
+    color: #000000;
+    border-radius: 25px;
+    border: 2px solid #5C5863;
+    background:#dbdbdb;
+
+}

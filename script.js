@@ -55,6 +55,13 @@ function verOcultar(e) {
 function finalizarCompra() {
     localStorage.removeItem("carrito")
     renderizarCarrito([])
+    Swal.fire({
+        title: "Kenzo Pet Shop",
+        text: "Te agradece por elegirnos",
+        icon: "success",
+        showConfirmButton: false,
+        timer: 4000,
+      });
 }
 
 function filtrarYRenderizarEnter(productos, e) {
@@ -79,7 +86,7 @@ function renderizarProductos(productos) {
         let tarjetaProducto = document.createElement("div")
 
         tarjetaProducto.innerHTML = `
-            <h3>${nombre}</h3>
+            <h4>${nombre}</h4>
             <img src=./images/${rutaImagen} />
             <h5>Precio: ${precio}</h5>
             <p>Stock: ${stock || "Sin unidades"}</p>
@@ -99,6 +106,8 @@ function agregarProductoAlCarrito(e, productos) {
     let idDelProducto = Number(e.target.id.substring(12))
     let posProductoEnCarrito = carrito.findIndex(producto => producto.id === idDelProducto)
     let productoBuscado = productos.find(producto => producto.id === idDelProducto)
+
+    ejecutarTostada("Se agrego producto", 1500)
 
     if (posProductoEnCarrito !== -1) {
         carrito[posProductoEnCarrito].unidades++
@@ -155,7 +164,7 @@ function decrementarUnidad(e) {
     let posProdEnCarrito = carrito.findIndex(producto => producto.id === id)
 
     carrito[posProdEnCarrito].unidades--
-    carrito[posProdEnCarrito].subtotal = carrito[posProdEnCarrito].unidades * carrito[posProdEnCarrito].precioUnitario 
+    carrito[posProdEnCarrito].subtotal = carrito[posProdEnCarrito].unidades * carrito[posProdEnCarrito].precioUnitario
     localStorage.setItem("carrito", JSON.stringify(carrito))
     renderizarCarrito()
 
@@ -167,7 +176,7 @@ function incrementarUnidad(e) {
     let posProdEnCarrito = carrito.findIndex(producto => producto.id === id)
 
     carrito[posProdEnCarrito].unidades++
-    carrito[posProdEnCarrito].subtotal = carrito[posProdEnCarrito].unidades * carrito[posProdEnCarrito].precioUnitario 
+    carrito[posProdEnCarrito].subtotal = carrito[posProdEnCarrito].unidades * carrito[posProdEnCarrito].precioUnitario
     localStorage.setItem("carrito", JSON.stringify(carrito))
     renderizarCarrito()
 
@@ -179,4 +188,12 @@ function eliminarProductoDelCarrito(e) {
     carrito = carrito.filter(producto => producto.id !== id)
     localStorage.setItem("carrito", JSON.stringify(carrito))
     e.target.parentElement.remove()
+}
+
+function ejecutarTostada(text, duration) {
+    Toastify({
+        text,
+        duration,
+        className: "tostada"
+    }).showToast();
 }
