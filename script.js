@@ -1,19 +1,11 @@
-let listaProductos = [
-    { id: 1, nombre: "Royal Canin Mini", categoria: "alimentos", stock: 20, precio: 50, rutaImagen: "royalcanin-mini.png" },
-    { id: 2, nombre: "Proplan Active Mind", categoria: "alimentos", stock: 30, precio: 100, rutaImagen: "proplan-activemind.png" },
-    { id: 3, nombre: "Proplan Adulto", categoria: "alimentos", stock: 20, precio: 110, rutaImagen: "proplan-adult.png" },
-    { id: 4, nombre: "Royal Canin Puppy", categoria: "alimentos", stock: 14, precio: 60, rutaImagen: "royalcanin-mini-puppy.png" },
-    { id: 5, nombre: "Peine", categoria: "higiene", stock: 10, precio: 5, rutaImagen: "peine-perro.png" },
-    { id: 6, nombre: "Corta Uñas y Lima", categoria: "higiene", stock: 18, precio: 35, rutaImagen: "corta-una-lima.png" },
-    { id: 7, nombre: "Pelotas", categoria: "juguetes", stock: 10, precio: 15, rutaImagen: "pelotas-perro.png" },
-    { id: 8, nombre: "Piloto", categoria: "higiene", stock: 18, precio: 25, rutaImagen: "piloto-perro2.png" },
-]
-
 const obtenerCarritoLS = () => JSON.parse(localStorage.getItem("carrito")) || []
 
-principal(listaProductos)
+principal()
 
-function principal(productos) {
+async function principal() {
+    const response = await fetch("./data.json")
+    const productos = await response.json()
+
     renderizarCarrito()
 
     let botonBuscar = document.getElementById("botonBuscar")
